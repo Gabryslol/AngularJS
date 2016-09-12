@@ -9,24 +9,26 @@
   function LunchCheckController($scope) {
     $scope.foodList = "";
     $scope.message = "";
+    $scope.status = "";
+    $scope.formStatus = "";
 
     $scope.showMessage = function () {
       var list = $scope.foodList;
       var foods = list.toString().trim().replace(/,$/, ''); //remove last semicolon if present
       if (foods === "") {
         $scope.message = "Please enter data first";
-        document.querySelector(".message").className = "form-group message alert alert-danger";
-        document.querySelector(".form-group").className = "form-group has-error";
+        $scope.status = "alert alert-danger";
+        $scope.formStatus = "has-error";
       }
       else if (foods.split(',').length > 3) {
         $scope.message = "Too much!";
-        document.querySelector(".message").className = "form-group message alert alert-success";
-        document.querySelector(".form-group").className = "form-group has-success";
+        $scope.status = "alert alert-success";
+        $scope.formStatus = "has-success";
       }
       else {
         $scope.message = "Enjoy!";
-        document.querySelector(".message").className = "form-group message alert alert-success";
-        document.querySelector(".form-group").className = "form-group has-success";
+        $scope.status = "alert alert-success";
+        $scope.formStatus = "has-success";
       }
     }
   }

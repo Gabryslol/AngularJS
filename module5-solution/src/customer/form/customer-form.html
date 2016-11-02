@@ -1,0 +1,61 @@
+<div class="customerForm">
+    <form name="inputForm" class="container" novalidate>
+        <h2>Customer Input Form</h1>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>First Name</label>
+                <input type="text" name="fname" class="form-control" placeholder="First Name" ng-model="formCtrl.customer.fname" required minlength="4">
+                <div class="alert alert-danger" role="alert" ng-if="(inputForm.fname.$error.minlength || inputForm.fname.$error.required) && inputForm.fname.$touched">
+                    Name must be at least 4 characters long
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>Last Name</label>
+                <input type="text" name="lname" class="form-control" placeholder="Last Name" ng-model="formCtrl.customer.lname" required minlength="4">
+                <div class="alert alert-danger" role="alert" ng-if="(inputForm.lname.$error.minlength || inputForm.lname.$error.required) && inputForm.lname.$touched">
+                    Surname must be at least 4 characters long
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>Email Adress</label>
+                <input type="email" name="email" class="form-control" placeholder="emailadress@email.it" ng-model="formCtrl.customer.email" required>
+                <div class="alert alert-danger" role="alert" ng-if="inputForm.email.$invalid  && inputForm.email.$touched">
+                    Must be a valid email address: handle@domain format
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>Telephone Number</label>
+                <input type="text" name="phone" class="form-control" required placeholder="Phone ###-###-####" ng-model="formCtrl.customer.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+                <div class="alert alert-danger" role="alert" ng-if="(inputForm.phone.$error.required || inputForm.phone.$invalid) && inputForm.phone.$touched">
+                    Phone must be in the format ###-###-####.
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <label>Menu Number</label>
+                <input type="text" name="scat" class="form-control" category-validation required placeholder="Menu Item Number" ng-model="formCtrl.customer.itemId">
+                <div class="alert alert-danger" role="alert" ng-if="inputForm.scat.$error.required  && inputForm.scat.$touched">
+                    Menu item Required
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-lg" ng-click="formCtrl.submit()" ng-disabled="inputForm.$invalid">Login</button>
+                <div class="alert alert-danger" role="alert" ng-if="formCtrl.registration && !formCtrl.menuFound">
+                    Menu number not exists
+                </div>
+                <div class="alert alert-success" role="alert" ng-if="formCtrl.registration && formCtrl.menuFound">
+                    Your information has been saved
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

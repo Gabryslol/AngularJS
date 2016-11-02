@@ -1,0 +1,32 @@
+input {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 24px;
+}
+
+.ng-touched.ng-valid {
+  border: 2px green solid;
+}
+
+.ng-touched.ng-invalid {
+  border: 2px red solid;
+}
+
+.customerForm {
+  margin: 10px;
+}
+
+.customerForm form {
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.btn-lg {
+  margin-bottom: 10px;
+}
